@@ -1,4 +1,4 @@
-import { supabase } from '@/lib/supabaseClient';
+import supabase from '@/lib/supabaseClient';
 import { useState, useEffect } from 'react';
 import InputField from '@/app/components/InputField';
 

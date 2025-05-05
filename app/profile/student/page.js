@@ -6,7 +6,7 @@ import ProfilePictureCard from '@/app/components/ProfilePictureCard';
 import InputField from '@/app/components/InputField';
 import EducationLevel from '@/app/components/EducationLevel';
 import BirthdateInput from '@/app/components/BirthdateInput';
-import { supabase } from '@/lib/supabaseClient';
+import supabase from '@/lib/supabaseClient';
 
 export default function StudentProfilePage() {
   const [profileData, setProfileData] = useState({
