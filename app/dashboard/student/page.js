@@ -34,7 +34,7 @@ export default function StudentDashboardPage() {
         {/* Trouver un Tuteur Maintenant Card */}
         <div className="mb-8 p-6 bg-white rounded-lg shadow-md">
           <h2 className="text-2xl font-semibold text-gray-800 mb-4">Trouver un Tuteur Maintenant</h2>
-          <p className="text-gray-600 mb-4">Besoin d'aide immédiate ? Trouvez un tuteur disponible maintenant pour vous aider.</p>
+          <p className="text-gray-600 mb-4">Besoin d&apos;aide immédiate ? Trouvez un tuteur disponible maintenant pour vous aider.</p>
           <button
             onClick={() => router.push('/find-tutor')}
             className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"

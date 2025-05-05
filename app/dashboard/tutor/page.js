@@ -64,7 +64,7 @@ export default function TutorDashboardPage() {
               
               {earnings === 0 && (
                 <p className="text-gray-500 italic">
-                  Vous n'avez pas encore gagné.
+                  Vous n&apos;avez pas encore gagné.
                 </p>
               )}
               
