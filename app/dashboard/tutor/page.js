@@ -74,7 +74,7 @@ export default function TutorDashboardPage() {
                            hover:bg-blue-700 transition-colors duration-200 shadow-sm
                            focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
                 >
-                  Voir l'Historique des Revenus
+                  Voir l&apos;Historique des Revenus
                 </button>
               </div>
             </div>
