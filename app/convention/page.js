@@ -46,7 +46,7 @@ export default function LandingPage() {
       </div>
       <div className="w-full max-w-md bg-gray-50 p-6 rounded-lg shadow-md">
         <h2 className="text-2xl font-semibold text-gray-900 text-center mb-4">
-          Rejoindre la liste d’attente
+          Rejoignez la révolution éducative
         </h2>
         <form onSubmit={handleJoinWaitlist} className="space-y-4">
           <input
@@ -55,14 +55,14 @@ export default function LandingPage() {
             placeholder="Entrez votre email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200"
+            className="w-full px-4 py-3 border border-gray-300 rounded-lg text-gray-800 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200"
             required
           />
           <button
             type="submit"
             className="w-full bg-blue-600 text-white py-3 px-6 rounded-lg font-medium text-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors duration-200 shadow-md"
           >
-            Rejoindre la liste d’attente
+            Joindre
           </button>
         </form>
         {message && <p className="text-green-600 text-center mt-4">{message}</p>}

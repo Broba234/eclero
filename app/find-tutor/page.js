@@ -2,6 +2,15 @@
 
 import { useState } from 'react';
 
+function FindingTutorAnimation() {
+  return (
+    <div className="flex flex-col items-center justify-center space-y-2">
+      <div className="w-8 h-8 border-4 border-blue-600 border-t-transparent rounded-full animate-spin"></div>
+      <p className="text-black font-semibold">Recherche d’un tuteur…</p>
+    </div>
+  );
+}
+
 export default function FindTutorPage() {
   const subjects = {
     Mathématiques: [
@@ -71,6 +80,8 @@ export default function FindTutorPage() {
   const [selectedCategory, setSelectedCategory] = useState(null);
   const [selectedSubject, setSelectedSubject] = useState(null);
   const [searchTerm, setSearchTerm] = useState('');
+  const [isFindingTutor, setIsFindingTutor] = useState(false);
+  const [tutors, setTutors] = useState([]);
 
   const filteredCourses = selectedCategory
     ? subjects[selectedCategory].filter((course) =>
@@ -84,10 +95,22 @@ export default function FindTutorPage() {
     setSearchTerm('');
   };
 
+  const handleFindTutor = () => {
+    setIsFindingTutor(true);
+    setTimeout(() => {
+      setIsFindingTutor(false);
+      setTutors([
+        { name: 'Jean Dupont', rating: 4.8, price: '20€/h', avatar: '/placeholder-avatar.png' },
+        { name: 'Marie Curie', rating: 4.9, price: '25€/h', avatar: '/placeholder-avatar.png' },
+        { name: 'Albert Einstein', rating: 5.0, price: '30€/h', avatar: '/placeholder-avatar.png' },
+      ]);
+    }, 2500);
+  };
+
   return (
     <main className="min-h-screen p-8 bg-gray-50">
       <div className="max-w-4xl mx-auto">
-        <h1 className="text-4xl font-bold text-gray-900 mb-8">Avec quoi avez-vous besoin d&apos;aide ?</h1>
+        <h1 className="text-4xl font-bold text-black mb-8">Avec quoi avez-vous besoin d&apos;aide ?</h1>
         <div className="flex">
           <div className="w-1/3 border-r pr-4">
             <h3 className="text-lg font-bold mb-4 text-black">Sujets</h3>
@@ -145,14 +168,37 @@ export default function FindTutorPage() {
         </div>
         {selectedSubject && (
           <div className="mt-4">
-            <p className="text-lg">Sujet sélectionné : <strong>{selectedSubject}</strong></p>
+            <p className="text-lg text-black">Sujet sélectionné : <strong>{selectedSubject}</strong></p>
           </div>
         )}
-        <button
-          className="mt-8 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
-        >
-          Trouver
-        </button>
+        {isFindingTutor ? (
+          <FindingTutorAnimation />
+        ) : tutors.length > 0 ? (
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-8">
+            {tutors.map((tutor, index) => (
+              <div key={index} className="p-4 border rounded-lg shadow-sm">
+                <img
+                  src={tutor.avatar}
+                  alt={tutor.name}
+                  className="w-16 h-16 rounded-full mx-auto mb-4"
+                />
+                <h3 className="text-lg font-bold mb-4 text-black">{tutor.name}</h3>
+                <p className="text-center text-black">{tutor.rating} ★</p>
+                <p className="text-center text-black font-bold">{tutor.price}</p>
+                <button className="mt-4 w-full px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition">
+                  Start Video Chat
+                </button>
+              </div>
+            ))}
+          </div>
+        ) : (
+          <button
+            onClick={handleFindTutor}
+            className="mt-8 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+          >
+            Trouver un tuteur
+          </button>
+        )}
       </div>
     </main>
   );
