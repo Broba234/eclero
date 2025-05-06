@@ -20,7 +20,7 @@
 }
 
 body {
-  background: var(--background);
+  background: linear-gradient(to right, #3b82f6, #93c5fd); /* Blue gradient */
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }

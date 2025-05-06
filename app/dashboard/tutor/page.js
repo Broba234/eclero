@@ -1,5 +1,3 @@
-/* eslint-disable react/no-unescaped-entities */
-
 'use client';
 
 import { useRouter } from 'next/navigation';
@@ -10,7 +8,7 @@ export default function TutorDashboardPage() {
   const earnings = 0.00;
 
   return (
-    <main className="min-h-screen p-8 bg-gray-50">
+    <main className="min-h-screen bg-gradient-to-r from-blue-500 to-blue-300 flex flex-col items-center justify-center">
       <div className="max-w-4xl mx-auto">
         {/* Header with Avatar */}
         <div className="flex justify-between items-center mb-12">

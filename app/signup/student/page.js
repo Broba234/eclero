@@ -63,7 +63,7 @@ export default function StudentSignupPage() {
   };
 
   return (
-    <main className="min-h-screen flex flex-col items-center justify-center p-8">
+    <main className="min-h-screen bg-gradient-to-r from-blue-500 to-blue-300 flex flex-col items-center justify-center">
       <div className="w-full max-w-md">
         <h1 className="text-3xl font-bold mb-8 text-center">Inscription Étudiant</h1>
         
