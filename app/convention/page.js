@@ -44,6 +44,9 @@ export default function LandingPage() {
           className="w-48 sm:w-64"
         />
       </div>
+      <p className="text-center text-white mb-6">
+        Éclero connecte instantanément les étudiants aux meilleurs tuteurs pour une aide en temps réel — rapide, simple, fiable.
+      </p>
       <div className="w-full max-w-md bg-gray-50 p-6 rounded-lg shadow-md">
         <h2 className="text-2xl font-semibold text-gray-900 text-center mb-4">
           Rejoignez la révolution éducative
