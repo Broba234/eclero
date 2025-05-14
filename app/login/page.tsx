@@ -22,18 +22,36 @@ export default function LoginPage() {
       setError(authErr.message);
       return;
     }
-    const user = data.user;
+
+    // Fetch the user after successful login
+    const { data: userData, error: userErr } = await supabase.auth.getUser();
+    if (userErr) {
+      setError(userErr.message);
+      return;
+    }
+    const user = userData.user;
+
     if (user) {
       const { data: profile, error: profileErr } = await supabase
         .from("users")
-        .select("role")
+        .select("role, full_name, email")
         .eq("id", user.id)
         .single();
       if (profileErr) {
         console.error("Profile fetch error:", profileErr);
         router.push("/"); // fallback
       } else {
-        router.push("/dashboard");
+        // Confirm full_name and email match
+        if (profile.full_name && profile.email === email) {
+          // Route user based on their role
+          if (profile.role === "tutor") {
+            router.push("/tutor/dashboard");
+          } else {
+            router.push("/student/dashboard");
+          }
+        } else {
+          setError("Profile information does not match.");
+        }
       }
     }
   };
